@@ -1,4 +1,28 @@
+import { useState,useEffect } from "react";
+import { IProduct } from "@/interface";
+
 const Sign=()=>{
+    const [products, ] = useState<IProduct[]>([]);
+        useEffect(() => {
+            try {
+                fetch('https://dummyjson.com/users/add', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                      firstName: 'Muhammad',
+                      lastName: 'Ovi',
+                      age: 250,
+                      /* other user data */
+                    })
+                  })
+                  .then(res => res.json())
+                  .then(console.log);
+ 
+            } catch (err) {
+                console.error(err);
+            }
+        }, [products])
+    
 
 
     return(
@@ -27,11 +51,11 @@ const Sign=()=>{
                         <input type="password" name="password" id="password" placeholder="Please enter password"/>
                     </div>
                 </form>
-                        <a href="home.tsx">
+                       
                             <button className="text-[1.5em] mt-[1em] border bg-[black] text-[white] hover:bg-brown-700 hover:text-[blue] rounded-[14px] pt-[6px] pb-[6px] pl-[6px] pr-[6px] w-[17em] ml-[1.5em]">
                                 Sign up        
                             </button>
-                        </a>
+                      
             </main>
         )
     }

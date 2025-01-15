@@ -3,6 +3,7 @@ import Layout from "./pages/layout";
 import './index.css';
 import HomePage from "./pages/HomePage";
 import Product from "./pages/Product";
+import Sign from "./component/sign-in";
 
 function App() {
   return (
@@ -17,6 +18,14 @@ function App() {
           }
         />
         <Route
+          path="/sign"
+          element={
+            <Layout>
+              < Sign/>
+            </Layout>
+          }
+        />
+        <Route
           path="/"
           element={
             <Layout>
@@ -24,6 +33,7 @@ function App() {
             </Layout>
           }
         />
+      
       </Routes>
     </Router>
   );
