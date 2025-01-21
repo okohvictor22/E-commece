@@ -1,27 +1,19 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./pages/layout";
 import './index.css';
-import HomePage from "./pages/HomePage";
-import Product from "./pages/Product";
-import Sign from "./component/sign-in";
+import Home from "@/pages/Home";
+import SignIn from "@/pages/SignIn";
+import Cart from "@/component/Cart";
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route
-          path="/Product"
+          path="/sign-in"
           element={
             <Layout>
-              <Product />
-            </Layout>
-          }
-        />
-        <Route
-          path="/sign"
-          element={
-            <Layout>
-              < Sign/>
+              < SignIn/>
             </Layout>
           }
         />
@@ -29,7 +21,15 @@ function App() {
           path="/"
           element={
             <Layout>
-              <HomePage />
+              <Home />
+            </Layout>
+          }
+        />
+        <Route
+          path="/cart"
+          element={
+            <Layout>
+              <Cart/>
             </Layout>
           }
         />

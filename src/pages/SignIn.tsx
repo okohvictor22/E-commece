@@ -1,7 +1,7 @@
 import { useState,useEffect } from "react";
 import { IProduct } from "@/interface";
 
-const Sign=()=>{
+const SignIn=()=>{
     const [products, ] = useState<IProduct[]>([]);
         useEffect(() => {
             try {
@@ -59,4 +59,4 @@ const Sign=()=>{
             </main>
         )
     }
-    export default Sign;
+    export default SignIn;
