@@ -30,7 +30,7 @@ const ProductCard: React.FC<ProcardCardProps> = ({ product, handleAddToCart }) =
                     {title}
                 </Typography>
                 <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                    ${price}
+                    $ {price}
                 </Typography>
             </CardContent>
             {<CardActions>

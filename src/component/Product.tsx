@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import { IProduct } from "@/interface";
-import Searchbox from "@/component/Searchbox";
+import Searchbox from "./Searchbox";
+
 
 
 const Products = () => {
@@ -36,8 +37,7 @@ const Products = () => {
         <main className="p-4">
             <img src="/bouncing-circles.svg" alt="" className="w-[1px]"/>
             <div>Cart Items: {cartItem}</div>
-            <Searchbox />
-
+                <Searchbox/>
             <div className="grid grid-cols-2 gap-y-3 gap-x-6 md:grid md:grid-cols-4">
             { products.length && products.map((product) => (
                 <ProductCard product={product} handleAddToCart={()=>setCartItem(cartItem+1)}/>
