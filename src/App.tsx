@@ -12,7 +12,7 @@ function App() {
     <Router>
       <Routes>
         <Route
-          path="/"
+          path="/SignIn"
           element={
             <Layout>
               < SignIn/>

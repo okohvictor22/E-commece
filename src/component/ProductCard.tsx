@@ -34,7 +34,6 @@ const ProductCard: React.FC<ProcardCardProps> = ({ product, handleAddToCart }) =
                 </Typography>
             </CardContent>
             {<CardActions>
-              
                 <Button size="small" onClick={handleAddToCart}>Add to Cart</Button>
             </CardActions>}
 

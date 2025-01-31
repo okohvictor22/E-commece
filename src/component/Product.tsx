@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import { IProduct } from "@/interface";
-import Searchbox from "./Searchbox";
 
 
 
@@ -35,9 +34,9 @@ const Products = () => {
     return (
 
         <main className="p-4">
-            <img src="/bouncing-circles.svg" alt="" className="w-[1px]"/>
-            <div>Cart Items: {cartItem}</div>
-                <Searchbox/>
+            <img src="/bouncing-circles.svg" alt="" className="w-[1px]"/>            
+                <div className="ml-[2em] mt-[1em]">Cart Items: {cartItem}</div>
+                
             <div className="grid grid-cols-2 gap-y-3 gap-x-6 md:grid md:grid-cols-4">
             { products.length && products.map((product) => (
                 <ProductCard product={product} handleAddToCart={()=>setCartItem(cartItem+1)}/>
@@ -50,4 +49,3 @@ const Products = () => {
 };
 
 export default Products;
-
