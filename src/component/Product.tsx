@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import { IProduct } from "@/interface";
 
-
-
 const Products = () => {
     const [products, setProducts] = useState<IProduct[]>([]);
     const [cartItem, setCartItem] = useState<number>(0);
