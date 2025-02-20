@@ -1,10 +1,10 @@
 const Dashboard=()=>{
 
     return(
-        <main>
+        <main className="bg-[lightblue]">
 
             <div className="grid grid-cols-[1fr_3fr] gap-4 mt-[1em] ml-[22em]">
-                <img src="/logo.jpg" alt=""  />
+                <img src="/IMG-20241115-WA0014.jpg" alt=""  />
                 <div>
                     <p className="text-[black] mt-[1em] font-bold text-[2em]">Victor's E-commerce <br />store</p>
                 </div>

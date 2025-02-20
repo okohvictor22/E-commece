@@ -1,22 +1,18 @@
 import { Card, CardMedia, CardContent, Typography, CardActions, Button } from "@mui/material";
 import { IProduct } from "@/interface";
-import { useState } from "react";
 type ProcardCardProps = {
     product: IProduct;
-    handleAddToCart: ()=> void;
+    handleAddToCart: (product: IProduct)=> void;
+ 
 }
-
-const [showDescription, setShowDescription] = useState(false);
-
-const toggleDescription = () => {
-  setShowDescription(!showDescription);
-};
-
 
 const ProductCard: React.FC<ProcardCardProps> = ({ product, handleAddToCart }) => {
     const { image, title, price, id, description } = product;
+    const addToCart = () => {
+        handleAddToCart(product);
+    };
     return (
-        <Card onClick={toggleDescription} key={id} className="p-4 text-[12px] transition duration-200 ease-in-out hover:scale-110">
+        <Card key={id} className="p-4 text-[12px] transition duration-200 ease-in-out hover:scale-110">
             <CardMedia
                 component="img"
                 alt="green iguana"
@@ -43,12 +39,10 @@ const ProductCard: React.FC<ProcardCardProps> = ({ product, handleAddToCart }) =
                 <Typography variant="body2" sx={{ color: 'text.secondary' }}>
                     $ {price}
                 </Typography>
-                <div className={`description ${!showDescription ? 'hidden' : ''}`}>
-                    {description}
-                </div>
+                
             </CardContent>
             {<CardActions>
-                <Button size="small" onClick={handleAddToCart}>Add to Cart</Button>
+                <Button size="small" onClick={addToCart}>Add to Cart</Button>
             </CardActions>}
         </Card>
     )

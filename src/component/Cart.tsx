@@ -1,21 +1,32 @@
-import { useState,useEffect } from "react";
 import { IProduct } from "@/interface";
-const Cart = ()=>{
-    const [products] = useState<IProduct[]>([]);
-        
-            useEffect(() => {
-                try {
-                    fetch('https://dummyjson.com/carts')
-                    .then(res => res.json())
-                    .then(console.log);
-                } catch (err) {
-                    console.error(err);
-                }
-            }, [products]) 
-    return(
-        <div>
+import { useState } from "react";
+import ProductCard from "./ProductCard";
 
-        </div>
-    )
+type CartItemProps ={
+    addToCart:IProduct
+    handleAddToCart:(addToCart:IProduct)=>void;
 }
-export default Cart;
+
+const checkCart : React.FC<CartItemProps> = ({addToCart,handleAddToCart}) => {
+    const [cartItems] = useState<IProduct[]>([]);
+    console.log(cartItems);
+    const cart = () => {
+        handleAddToCart(addToCart);
+        console.log(cart);
+    };
+    return(
+        <main>
+        <div>
+            { cartItems.length && cartItems.map((cartItems: IProduct) => (
+                <ProductCard product={cartItems} handleAddToCart={cart}/>
+            ))
+        }     
+        </div>
+        <a href="SignIn">
+            <button>check out</button>
+        </a>
+        </main>
+    );
+};
+      export default checkCart;
+            
