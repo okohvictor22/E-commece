@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import { IProduct } from "@/interface";
 import Searchbox from "./Searchbox";
+import CheckCart from "./checkCart";
 const Products = () => {
 
     const [products, setProducts] = useState<IProduct[]>([]);
     const [cartItems, setCartItems] = useState<IProduct[]>([]);
-    // console.log(products);
+    console.log(products);
 
     useEffect(() => {
         try {
@@ -20,8 +21,7 @@ const Products = () => {
             console.error(err);
         }
     }, [])
-
-  
+    
     // const isOnline= window.navigator.onLine;
 
     // if( Products.length= isOnline       ){
@@ -38,30 +38,37 @@ const Products = () => {
         setCartItems([...cartItems,product])
         console.log (cartItem);
     };
-    
-    
+        localStorage.setItem("addToCart",addToCart.toString());
+     
     return (
 
         <main className="p-4 bg-[lightblue]">
-            
+             
             <Searchbox/>            
                 <div className="grid grid-cols-2 ml-[49em] mb-[2em]">
                     Cart Items:{cartItems.length}
-                    <a href="checkCart">
+                    <a href="">
                         <button>See cart</button>
                     </a>
                     
                 </div>
-              
+               
             <div className="grid grid-cols-1 sm:grid sm:grid-cols-2 gap-y-3 gap-x-6 md:grid md:grid-cols-4">
             { products.length && products.map((product) => (
                 <ProductCard product={product} handleAddToCart={addToCart}/>
             ))
         }     
             </div>
+          <div>
+          { cartItems.length && cartItems.map((cartItems) => (
+                <CheckCart cartItems={cartItems} handleAddToCart={addToCart}/>
+            ))
+        }       
+          </div>
 
         </main>
     );
 };
+
 
 export default Products;

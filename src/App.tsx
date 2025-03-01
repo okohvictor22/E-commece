@@ -4,7 +4,7 @@ import './index.css';
 import Dashboard from "@/pages/Dashboard";
 import SignIn from "@/pages/SignIn";
 import Products from "./component/Product";
-import checkCart from "./component/Cart";
+
 
 function App() {
   return (
@@ -26,7 +26,7 @@ function App() {
             </Layout>
           }
         />
-      
+       
         <Route
           path="/products"
           element={
@@ -35,14 +35,7 @@ function App() {
             </Layout>
           }
         />
-        <Route
-          path="/checkCart"
-          element={
-            <Layout>
-              <checkCart/>
-            </Layout>
-          }
-        />
+       
       
       </Routes>
     </Router>
