@@ -7,8 +7,10 @@ const Products = () => {
 
     const [products, setProducts] = useState<IProduct[]>([]);
     const [cartItems, setCartItems] = useState<IProduct[]>([]);
-    console.log(products);
+    const [isSeeCart, setisSeeCart] = useState<boolean>(false);
+    
 
+    
     useEffect(() => {
         try {
             fetch('https://fakestoreapi.com/products')
@@ -39,32 +41,33 @@ const Products = () => {
         console.log (cartItem);
     };
         localStorage.setItem("addToCart",addToCart.toString());
-     
+        
     return (
 
         <main className="p-4 bg-[lightblue]">
              
             <Searchbox/>            
                 <div className="grid grid-cols-2 ml-[49em] mb-[2em]">
-                    Cart Items:{cartItems.length}
-                    <a href="">
-                        <button>See cart</button>
-                    </a>
+                    <div className="grid grid-cols-2">
+                        <div><img src="/cart.jpeg" alt="" className="border rounded-[5px] mr-[1em]"/></div>
+                        <div>Cart Items:{cartItems.length}</div>
+                    </div>
                     
-                </div>
-               
+                    <button onClick={()=> setisSeeCart(true)}>See cart</button>
+                  <div>
+                    {isSeeCart &&
+                        <CheckCart cartItems={cartItems} closeCart={()=>setisSeeCart(false)}/>
+                                            
+                    }
+                    </div> 
+         
+          </div>
             <div className="grid grid-cols-1 sm:grid sm:grid-cols-2 gap-y-3 gap-x-6 md:grid md:grid-cols-4">
             { products.length && products.map((product) => (
                 <ProductCard product={product} handleAddToCart={addToCart}/>
             ))
         }     
             </div>
-          <div>
-          { cartItems.length && cartItems.map((cartItems) => (
-                <CheckCart cartItems={cartItems} handleAddToCart={addToCart}/>
-            ))
-        }       
-          </div>
 
         </main>
     );

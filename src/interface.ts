@@ -1,4 +1,5 @@
 export interface IProduct{
+    [x: string]: ReactNode;
     category: string;
     description: string;
     id: number;
