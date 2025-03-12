@@ -4,6 +4,7 @@ import './index.css';
 import Dashboard from "@/pages/Dashboard";
 import SignIn from "@/pages/SignIn";
 import Products from "./component/Product";
+import AdminSign from "./pages/admin-sign";
 
 
 function App() {
@@ -14,24 +15,32 @@ function App() {
           path="/"
           element={
             <Layout>
-              < SignIn/>
+              < Dashboard/>
             </Layout>
           }
         />
         <Route
-          path="/Dashboard"
+          path="/signIn"
           element={
             <Layout>
-              <Dashboard />
+              < SignIn/>
             </Layout>
           }
         />
        
         <Route
-          path="/products"
+          path="/Products"
           element={
             <Layout>
               <Products/>
+            </Layout>
+          }
+        />
+        <Route
+          path="/AdminSign"
+          element={
+            <Layout>
+              <AdminSign/>
             </Layout>
           }
         />

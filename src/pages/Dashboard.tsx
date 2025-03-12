@@ -2,7 +2,7 @@ const Dashboard=()=>{
 
     return(
         <main className="bg-[lightblue]">
-
+           
             <div className="grid grid-cols-[1fr_3fr] gap-4 mt-[1em] ml-[22em]">
                 <img src="/IMG-20241115-WA0014.jpg" alt=""  />
                 <div>
@@ -18,7 +18,7 @@ const Dashboard=()=>{
                         <img src="/star.png" alt="" className="ml-[1em]"/>
                     <div>
                         <p><span className="font-bold mt-[8em] text-[2em]">Product:</span> <br />To view all products, first of all sign into the store so as to become a user. After doing that you will recieve a token which you are to keep safe because after every two months you would be expected to login again but using the token you recieve. Now on the product page there are items listed out for you the user to choose and make choice on what to buy. </p>
-                        <p>To open product page <a href="Products" className="text-[blue]"> product</a></p>
+                        
                     </div>
                 </div>
                 <div className="grid grid-cols-[1fr_10fr] mt-[3em] ">
@@ -30,6 +30,14 @@ const Dashboard=()=>{
                 <p className="ml-[1em] font-bold mt-[0.5em]">for more enquiries call:08039899182</p>
                 <p className="ml-[1em] mt-[1em]">Go back to <a href="SignIn" className="text-[blue]">Login</a></p>
 
+                    <div>
+                        <a href="SignIn">
+                            <button className="text-[1.5em] mt-[1em] border bg-[black] text-[white] hover:bg-brown-700 hover:text-[blue] hover:bg-[grey] rounded-[14px] p-4 w-max ml-[1em]">USER MODE</button>
+                        </a>
+                        <a href="AdminSign">
+                            <button className="text-[1.5em] mt-[1em] border bg-[black] text-[white] hover:bg-brown-700 hover:text-[blue] hover:bg-[grey] rounded-[14px] p-4 w-max ml-[1em]">ADMIN MODE</button>
+                        </a>
+                    </div>
         </main>
     )
 }

@@ -1,42 +1,42 @@
 import { IProduct } from "@/interface"
 type CheckCartProps ={
     cartItems:IProduct[]
-    closeCart:()=>void;
 }
  
-const CheckCart:React.FC<CheckCartProps>  = ({cartItems, closeCart}) => {
+const CheckCart:React.FC<CheckCartProps>  = ({cartItems}) => {
 
 
     return(
-        <main>
+        <main  className="absolute top-[4em] w-max right-0 bg-[whitesmoke] max-h-[400px] overflow-y-scroll p-4 border border-black shadow">
 
       <div>
 
         {cartItems.length && cartItems.map((cartItem)=>
-        <div className="absolute right-4 grid grid-cols-[1fr_4fr] bg-[green] mt-[15px]">
+        <div className="grid grid-cols-3 mb-[15px] z-index:40;">
                 
-          <div>
-          <p>
-               <img src={cartItem.image} alt="" className="w-[3em] h-[4em]"/>
+          <div className="w-[3em] h-[4em] mt-[7px]">
+            <p>
+              <img src={cartItem.image} alt=""/>
             </p>
           </div>
 
-           <div>
-           <p>
-                {cartItem.title}
-            </p>
-
+          <div>
             <p>
-            {cartItem.price}
+              {cartItem.title}
             </p>
-           </div>
+          </div>
+
+          <div>
+            <p className=" mt-[20px] ml-[70px]">
+              {cartItem.price}
+            </p>
+          </div>
         </div>  
         )}
        
       </div>
-      <div className=" border rounded-[15px] bg-[blue] w-[6em] h-[2em] pl-[9px]">
-        <button onClick={closeCart}>check out</button>
-      </div>
+
+      
       </main>
     )
 }

@@ -1,25 +1,37 @@
-import ProductData from "@/productData";
+// import { useState,useEffect, JSXElementConstructor, Key, ReactElement, ReactNode, ReactPortal } from "react";
 
-const Searchbox = () =>{
-    const SearchEngine = document.getElementById('SearchEngine') as HTMLInputElement;
-   
-    // console.log(SearchEngine)
+// const Searchbox = ({products}) =>{
+//     const[searchQuery,setSearchQuery] = useState("");
+//     const [filteredProducts,setFilteredProducts] = useState(products);
+    
 
-    if (SearchEngine) {
-        SearchEngine.addEventListener('keyup', () => {
-          let searchvalue = SearchEngine.value.toLowerCase();
-          const products = ProductData();
-          const filteredCards = products.filter((product) => product.title.toLowerCase().includes(searchvalue));
-          console.log(filteredCards);
-        });
-      } else {
-        // console.log(SearchEngine);
-      }
+//     useEffect(()=>{
+//       const filtered =products.filter((product: { name: { toLowerCase: () => (() => string)[]; }; })=>product.name.toLowerCase().includes(searchQuery.toLowerCase)
+//     );
+//     setFilteredProducts(filtered);
+//     },[searchQuery,products]);
     
-    
-    return(
-        <div><input type="search" name="searchbox" placeholder="Type a name to search" className="searchbox pt-[6px] pb-[6px] pl-[6px] pr-[6px] w-[15em] border-black-900 border-solid rounded-[9px] ml-[3em] mt-[1em] mb-[1em]"/></div>
+//     return(
+//         <div>
+//           <input
+//            type="text" 
+//            placeholder="search products..."
+//            value={searchQuery}
+//            onChange={(e) =>
+//            setSearchQuery(e.target.value)}
+//            />
+
+//            {filteredProducts.length>0 ? (
+//             <ul>
+//               {filteredProducts.map((product: { id: Key | null | undefined; name: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined; })=>(
+//                 <li key={product.id}>{product.name}</li>
+//               ))}
+//             </ul>
+//            ):(
+//             <p>No Product Found.</p>
+//            )}
+//         </div>
             
-    );
-};
-   export default Searchbox; 
+//     );
+// };
+//    export default Searchbox; 

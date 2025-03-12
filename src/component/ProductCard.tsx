@@ -9,8 +9,9 @@ type ProcardCardProps = {
 const ProductCard: React.FC<ProcardCardProps> = ({ product, handleAddToCart }) => {
     const { image, title, price, id, description } = product;
     return (
-        <Card key={id} className="p-4 text-[12px] transition duration-200 ease-in-out hover:scale-110">
+        <Card key={id} className="p-4 text-[12px] ">
             <CardMedia
+                className="bg-[lightblue]"
                 component="img"
                 alt="green iguana"
                 sx={{
@@ -39,7 +40,7 @@ const ProductCard: React.FC<ProcardCardProps> = ({ product, handleAddToCart }) =
                 
             </CardContent>
             {<CardActions>
-                <Button size="small" onClick={()=> handleAddToCart(product)}>Add to Cart</Button>
+                <Button className="z-index:1" size="small" onClick={()=> handleAddToCart(product)}>Add to Cart</Button>
             </CardActions>}
         </Card>
     )
