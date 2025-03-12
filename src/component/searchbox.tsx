@@ -1,37 +1,34 @@
-// import { useState,useEffect, JSXElementConstructor, Key, ReactElement, ReactNode, ReactPortal } from "react";
+import { IProduct } from "@/interface";
+import { useState,useEffect, SetStateAction, Dispatch } from "react";
 
-// const Searchbox = ({products}) =>{
-//     const[searchQuery,setSearchQuery] = useState("");
-//     const [filteredProducts,setFilteredProducts] = useState(products);
+type SearchboxProps = {
+    products:IProduct[];
+    setProducts:  Dispatch<SetStateAction<IProduct[]>>;
+}
+
+const Searchbox:React.FC<SearchboxProps> = ({products, setProducts}) =>{
+    const[searchQuery,setSearchQuery] = useState("");
+    console.log(products);
+    useEffect(()=>{
+
+        const filtered = products.filter((product: IProduct) =>
+            product.title.toLowerCase().includes(searchQuery?.toLowerCase() || "")
+          );
+          setProducts(filtered);
     
-
-//     useEffect(()=>{
-//       const filtered =products.filter((product: { name: { toLowerCase: () => (() => string)[]; }; })=>product.name.toLowerCase().includes(searchQuery.toLowerCase)
-//     );
-//     setFilteredProducts(filtered);
-//     },[searchQuery,products]);
+    },[searchQuery]);
     
-//     return(
-//         <div>
-//           <input
-//            type="text" 
-//            placeholder="search products..."
-//            value={searchQuery}
-//            onChange={(e) =>
-//            setSearchQuery(e.target.value)}
-//            />
-
-//            {filteredProducts.length>0 ? (
-//             <ul>
-//               {filteredProducts.map((product: { id: Key | null | undefined; name: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined; })=>(
-//                 <li key={product.id}>{product.name}</li>
-//               ))}
-//             </ul>
-//            ):(
-//             <p>No Product Found.</p>
-//            )}
-//         </div>
+    return(
+        <div>
+          <input
+           type="text" 
+           placeholder="search products..."
+           value={searchQuery}
+           onChange={(e) =>
+           setSearchQuery(e.target.value)}
+           />
+        </div>
             
-//     );
-// };
-//    export default Searchbox; 
+    );
+};
+   export default Searchbox; 
