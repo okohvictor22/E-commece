@@ -1,32 +1,35 @@
-import { Link } from "react-router-dom";
-interface AdminDashboardProps {
-  setIsAdmin: (isAdmin: boolean) => void;
-}
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
+const AdminDashboard = () => {
+  const navigate = useNavigate();
 
-const AdminDashboard:React.FC<AdminDashboardProps> = ({ setIsAdmin }) => {
-  const handleLogout = () => {
-    setIsAdmin(false);
-  };
+  useEffect(() => {
+    const isAdminLoggedIn = localStorage.getItem("isAdminLoggedIn");
+    if (!isAdminLoggedIn) {
+      navigate("/login");
+    }
+  }, []);
 
   return (
     <div>
-      <h1>Admin Dashboard</h1>
-      
-      
-      <Link to="/admin/products" className="bg-blue-500 text-white px-4 py-2 block mt-4">
-        Manage Products
-      </Link>
-        <a href="AdminSign">
-          <button onClick={handleLogout} className="bg-red-500 text-white px-4 py-2 mt-4">
-            Logout
-          </button>
+      <h2>Welcome to Admin Dashboard</h2>
+
+      <a href="adminproducts">
+         <button
+        onClick={() => {
+          localStorage.removeItem("isAdminLoggedIn");
+          navigate("/login");
+        }}
+        className="bg-red-500 text-white px-4 py-2"
+      >
+        AdminProduct
+      </button>
       </a>
+
+     
     </div>
   );
 };
 
 export default AdminDashboard;
-interface AdminDashboardProps {
-  setIsAdmin: (isAdmin: boolean) => void;
-}

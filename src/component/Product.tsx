@@ -45,12 +45,12 @@ const Products = () => {
           const existingItem = prevCart.find((item) => item.id === product.id);
       
           if (existingItem) {
-            // ✅ If the product exists, update its quantity
+           
             return prevCart.map((item) =>
               item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
             );
           } else {
-            // ✅ If the product is new, add it with quantity: 1
+          
             return [...prevCart, { ...product, quantity: 1 }];
           }
         });

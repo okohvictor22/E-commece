@@ -34,7 +34,7 @@ const Dashboard=()=>{
                         <a href="SignIn">
                             <button className="text-[1.5em] mt-[1em] border bg-[black] text-[white] hover:bg-brown-700 hover:text-[blue] hover:bg-[grey] rounded-[14px] p-4 w-max ml-[1em]">USER MODE</button>
                         </a>
-                        <a href="AdminSign">
+                        <a href="AdminLogin">
                             <button className="text-[1.5em] mt-[1em] border bg-[black] text-[white] hover:bg-brown-700 hover:text-[blue] hover:bg-[grey] rounded-[14px] p-4 w-max ml-[1em]">ADMIN MODE</button>
                         </a>
                     </div>

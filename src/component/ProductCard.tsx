@@ -1,4 +1,4 @@
-import { Card, CardMedia, CardContent, Typography, CardActions, Button } from "@mui/material";
+import { Card, CardMedia, CardContent, Typography, CardActions, Button } from "@mui/material"; 
 import { IProduct } from "@/interface";
 type ProcardCardProps = {
     product: IProduct;
