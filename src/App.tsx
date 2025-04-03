@@ -23,7 +23,8 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<Layout>
+          element={
+          <Layout>
             <Dashboard />
           </Layout>} />
         <Route

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { IProduct } from "@/interface";
 import { Bounce, toast, ToastContainer } from "react-toastify";
+import FourthDrop from "@/component/FourthDrop";
 
 interface AdminProductsProps {
   products: IProduct[];
@@ -23,7 +24,7 @@ const toastOptions:any = {
 
 const AdminProducts: React.FC<AdminProductsProps> = ({ products, setProducts }) => {
   const [newProduct, setNewProduct] = useState({ title: "", price: 0 });
-
+  
  
   const notify = (displayText: string, type:'success' | 'error') => toast(displayText, {...toastOptions, type});
 
@@ -66,8 +67,12 @@ const AdminProducts: React.FC<AdminProductsProps> = ({ products, setProducts }) 
     }
   };
 
+
+  
+  
   return (
     <main>
+      <FourthDrop/>
     <ToastContainer  />
     <div className="p-4">
       <h2 className="text-xl font-bold mb-4">Manage Products</h2>
@@ -96,7 +101,8 @@ const AdminProducts: React.FC<AdminProductsProps> = ({ products, setProducts }) 
             setNewProduct({ ...newProduct, price: Number(e.target.value) });
           }}
         />
-        <button onClick={handleAddProduct}>
+        <button onClick={handleAddProduct} 
+        >
           Add Product
         </button>
       </div>
@@ -113,6 +119,9 @@ const AdminProducts: React.FC<AdminProductsProps> = ({ products, setProducts }) 
         ))}
       </ul>
     </div>
+
+   
+
    </main>
   );
 

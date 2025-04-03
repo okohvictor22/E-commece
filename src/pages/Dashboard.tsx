@@ -1,8 +1,9 @@
+import Dropdown from "@/component/Dropdown";
 const Dashboard=()=>{
 
     return(
         <main className="bg-[lightblue]">
-           
+           <Dropdown/>
             <div className="grid grid-cols-[1fr_3fr] gap-4 mt-[1em] ml-[22em]">
                 <img src="/IMG-20241115-WA0014.jpg" alt=""  />
                 <div>
@@ -30,14 +31,7 @@ const Dashboard=()=>{
                 <p className="ml-[1em] font-bold mt-[0.5em]">for more enquiries call:08039899182</p>
                 <p className="ml-[1em] mt-[1em]">Go back to <a href="SignIn" className="text-[blue]">Login</a></p>
 
-                    <div>
-                        <a href="SignIn">
-                            <button className="text-[1.5em] mt-[1em] border bg-[black] text-[white] hover:bg-brown-700 hover:text-[blue] hover:bg-[grey] rounded-[14px] p-4 w-max ml-[1em]">USER MODE</button>
-                        </a>
-                        <a href="AdminLogin">
-                            <button className="text-[1.5em] mt-[1em] border bg-[black] text-[white] hover:bg-brown-700 hover:text-[blue] hover:bg-[grey] rounded-[14px] p-4 w-max ml-[1em]">ADMIN MODE</button>
-                        </a>
-                    </div>
+                    
         </main>
     )
 }
