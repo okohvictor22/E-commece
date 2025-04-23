@@ -29,9 +29,7 @@ const Dashboard=()=>{
                     </div>
                 </div>
                 <p className="ml-[1em] font-bold mt-[0.5em]">for more enquiries call:08039899182</p>
-                <p className="ml-[1em] mt-[1em]">Go back to <a href="SignIn" className="text-[blue]">Login</a></p>
-
-                    
+                
         </main>
     )
 }

@@ -21,43 +21,41 @@ function App() {
   return (
     <><Router>
       <Routes>
+
         <Route
           path="/"
           element={
           <Layout>
             <Dashboard />
           </Layout>} />
-        <Route
-          path="/signIn"
-          element={<Layout>
-            <SignIn />
-          </Layout>} />
-        <Route
+
+          <Route
+            path="/signIn"
+            element={
+            <Layout>
+              <SignIn />
+            </Layout>} />
+
+          <Route
           path="/products"
-          element={<Layout>
+          element={
+          <Layout>
             <Products />
           </Layout>} />
-        <Route path="/" element={<h1>Home Page</h1>} />
-        <Route path="/AdminLogin" element={<AdminLogin />} />
-        <Route path="/AdminDashboard" element={<AdminDashboard />} />
 
-        {/* <Route
-    path="/dashboard"
-    element={
-      <Layout>
-    <AdminDashboard/>
-    </Layout>
-    }
-    /> */}
+          <Route path="/" element={<h1>Home Page</h1>} />
+          <Route path="/AdminLogin" element={<AdminLogin />} />
+          <Route path="/AdminDashboard" element={<AdminDashboard />} />
 
-        <Route
-          path="/adminproducts"
-          element={isAdmin ? <AdminProducts products={[]} setProducts={function (_updatedProducts: IProduct[]): void {
-            throw new Error("Function not implemented.");
-          } } />
-            : (
-              <p></p>
-            )} />
+            <Route
+              path="/adminproducts"
+              element={isAdmin ? <AdminProducts products={[]} setProducts={function (_updatedProducts: IProduct[]): void {
+                throw new Error("Function not implemented.");
+              } } />
+                : (
+                  <p></p>
+                )} />
+
       </Routes>
     </Router></>
   );
