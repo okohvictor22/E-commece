@@ -1,80 +1,81 @@
-import { useState,useEffect } from "react";
-import { IProduct } from "@/interface";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const SignIn=()=>{
-    const [ ] = useState<IProduct[]>([]);
-        useEffect(() => {
-            try {
-                fetch('https://dummyjson.com/users/add', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                      
-                      age: 250,
-                      
-                      /* other user data */
-                    })
-                  })
-                  .then(res => res.json())
-                  .then(console.log);
-            } catch (err) {
-                console.error(err);
-            }
-        }, [])
-        const Property={firstName: 'Muhammad',
-                        lastName: 'Ovi',
-                        password:"*******",}
-                        
-                        console.log(Property);
-    
+const SignIn = () => {
+  const navigate = useNavigate();
 
+  const [formData, setFormData] = useState({
+    email: '',
+    username: '',
+    password: '',
+    confirmPassword: ''
+  });
 
-    return(
-            <main className="bg-[lightblue]">
-                <div className="grid grid-cols-[1fr_3fr] gap-4 mt-[1em] ml-[22em]">
-                    <img src="/IMG-20241115-WA0014.jpg" alt=""/>
-                    <p className="text-[black] mt-[1em] font-bold text-[2em]">Victor's E-commerce <br />stores</p>
-                </div>
+  const [showWelcome, setShowWelcome] = useState(false);
 
-                <div>
-                <div className="ml-[20em]">
-                    <h1 className="text-[2em] ml-[1em] mt-[1em] text-[brown]">
-                        Sign up
-                    </h1>
-                    <p className="text-[1.25em] ml-[2em] mt-[0.5em]">
-                        Fill the form to register the account
-                    </p>
-                </div>
-                        
-                    <form>
-                        <div className="ml-[25em]">
-                            <label htmlFor="email" id="test" className="text-[1.5em] mt-[2em]">Email</label>
-                            <br/>
-                            <input type="text" name="email" id="email" placeholder="Please enter your email" className="mb-[0.5em]"/>
-                            <br/>
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
-                            <label htmlFor="username" className="text-[1.5em] mt-[2em]">User name</label>
-                            <br />
-                            <input type="text" name="username" id="username" placeholder="Please enter User name" className="mb-[0.5em]"/>
-                            <br />
-                            <label htmlFor="password" id="web" className="text-[1.5em] mt-[2em]">Password</label>
-                            <br/>
-                            <input type="password" name="password" id="pass" placeholder="Please enter password" className="mb-[0.5em]"/>
-                            <br />
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
 
-                            <label htmlFor="password" id="web" className="text-[1.5em] mt-[2em]">Re-enter password</label>
-                            <br/>
-                            <input type="password" name="password" id="password" placeholder="Please Re-enter password"/>
-                        </div>
-                    </form>
-                        <a href="products">
-                        <button className="text-[1.5em] mt-[1em] border bg-[black] text-[white] hover:bg-brown-700 hover:text-[blue] hover:bg-[grey] rounded-[14px] pt-[6px] pb-[6px] pl-[6px] pr-[6px] w-[17em] ml-[12em]">
-                                    Sign up        
-                                </button>
-                        </a>
-                </div>
-                <p className="ml-[1em] font-bold mt-[0.5em]">for more enquiries call:08039899182</p>
-            </main>
-        )
+    if (formData.password !== formData.confirmPassword) {
+      alert("Passwords do not match!");
+      return;
     }
-    export default SignIn;
+
+    setShowWelcome(true);
+
+    // Simulate delay then navigate
+    setTimeout(() => {
+      navigate("/products"); // make sure your route is set up
+    }, 2500);
+  };
+
+  return (
+    <main className="bg-lightblue min-h-screen p-6">
+      <div className="flex flex-col items-center">
+        {/* Header */}
+        <div className="flex items-center gap-6 mb-8">
+          <img src="/IMG-20241115-WA0014.jpg" alt="Logo" className="w-24 h-24 object-cover rounded-full shadow-md" />
+          <p className="text-black font-bold text-3xl text-center">Victor's E-commerce <br /> Stores</p>
+        </div>
+
+        {/* Sign Up Form */}
+        <div className="bg-white p-8 rounded-xl shadow-md w-full max-w-lg">
+          <h1 className="text-3xl text-brown-700 font-semibold text-center mb-4">Sign up</h1>
+          <p className="text-center text-gray-600 mb-6">Fill the form to register your account</p>
+
+          <form onSubmit={handleSubmit}>
+            <div className="flex flex-col gap-4">
+              <input type="text" name="email" value={formData.email} onChange={handleChange} placeholder="Email" className="border p-2 rounded-md" />
+              <input type="text" name="username" value={formData.username} onChange={handleChange} placeholder="Username" className="border p-2 rounded-md" />
+              <input type="password" name="password" value={formData.password} onChange={handleChange} placeholder="Password" className="border p-2 rounded-md" />
+              <input type="password" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} placeholder="Re-enter Password" className="border p-2 rounded-md" />
+            </div>
+
+            <div className="mt-6 text-center">
+              <button type="submit" className="text-xl bg-black text-white px-6 py-2 rounded-xl hover:bg-gray-700 transition duration-300 w-full">
+                Sign up
+              </button>
+            </div>
+          </form>
+        </div>
+
+        {/* Welcome Message Animation */}
+        {showWelcome && (
+          <div className="mt-6 bg-green-100 border border-green-400 text-green-800 px-4 py-3 rounded-lg shadow-md transition-opacity duration-700 ease-in-out animate-fade-in">
+            Welcome, <span className="font-bold">{formData.username}</span>! 🎉
+          </div>
+        )}
+
+        <p className="mt-4 font-semibold text-center text-sm text-gray-800">
+          For more enquiries call: <span className="text-blue-700">08039899182</span>
+        </p>
+      </div>
+    </main>
+  );
+};
+
+export default SignIn;
