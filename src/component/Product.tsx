@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import { IProduct } from "@/interface";
-import Searchbox from "./Searchbox";
 import CheckCart from "./checkCart";
 import SecondDrop from "./SecondDrop";
+import Searchbox from "@/component/Searchbox";
 
 type IProductWithQuantity = IProduct & { quantity: number };
 

@@ -31,4 +31,5 @@ const Searchbox:React.FC<SearchboxProps> = ({products, setProducts}) =>{
             
     );
 };
-   export default Searchbox; 
+
+export default Searchbox; 
