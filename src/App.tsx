@@ -49,12 +49,10 @@ function App() {
 
             <Route
               path="/adminproducts"
-              element={isAdmin ? <AdminProducts products={[]} setProducts={function (_updatedProducts: IProduct[]): void {
+              element={<AdminProducts products={[]} setProducts={function (_updatedProducts: IProduct[]): void {
                 throw new Error("Function not implemented.");
               } } />
-                : (
-                  <p></p>
-                )} />
+                } />
 
       </Routes>
     </Router></>

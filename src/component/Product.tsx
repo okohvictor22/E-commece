@@ -3,7 +3,7 @@ import ProductCard from "./ProductCard";
 import { IProduct } from "@/interface";
 import CheckCart from "./checkCart";
 import SecondDrop from "./SecondDrop";
-import Searchbox from "@/component/Searchbox";
+
 
 type IProductWithQuantity = IProduct & { quantity: number };
 
@@ -48,7 +48,6 @@ const Products = () => {
     return (
         <main className="p-4 bg-[lightgray]">
             <div className="grid grid-cols-2 fixed bg-[lightgray] top-0 w-full h-max">
-                <Searchbox products={products} setProducts={setFilteredProducts} />            
                 <div className="grid grid-cols-2 justify-self-end w-max pr-2">
                     <div className="grid items-center">
                         <img src="/cart.jpeg" alt="Cart" className="w-[50px] border rounded-[5px] mr-[1em]" />
