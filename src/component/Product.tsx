@@ -4,7 +4,6 @@ import { IProduct } from "@/interface";
 import CheckCart from "./checkCart";
 import SecondDrop from "./SecondDrop";
 
-
 type IProductWithQuantity = IProduct & { quantity: number };
 
 const Products = () => {
@@ -30,7 +29,7 @@ const Products = () => {
 
         fetchProducts();
     }, []);
-
+    console.log(products);
     const addToCart = (product: IProduct) => {
         setCartItems((prevCart) => {
             const existingItem = prevCart.find((item) => item.id === product.id);
